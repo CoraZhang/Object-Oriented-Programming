@@ -1,3 +1,3 @@
-# ECE326 Programming Languages
+Programming Languages
 
 Assignment repository for Group 17.
