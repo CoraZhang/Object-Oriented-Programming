@@ -1,0 +1,119 @@
+
+
+Running: /nfs/ug/cad/cad2/ece326f/tester/scripts/lab3-06-get.py
+easydb get command test
+CASE 1: Get non-existing row.
+CASE 1 PASS
+CASE 2: Table name does not exist.
+CASE 2 PASS
+CASE 3: Everything is ok.
+CASE 3 FAIL: the received row is not correct
+Mark for easydb get command test is 2 out of 3
+FAIL
+
+Running: /nfs/ug/cad/cad2/ece326f/tester/scripts/lab3-08-orm.py
+orm basic test
+CASE 2: Choices value is not the correct type.
+CASE 2 FAIL: Duplicate tables defined: Person.
+CASE 3: Field name contains underscore.
+CASE 3 FAIL: Duplicate tables defined: Person.
+CASE 4: Field name use reserved word.
+CASE 4 FAIL: Duplicate tables defined: Person.
+CASE 5: Setup with a correct schema
+CASE 5 PASS
+CASE 6: Create a row object with missing field.
+CASE 6 FAIL: expected AttributeError
+CASE 7: Create a row object with no error
+CASE 7 PASS
+CASE 8: Create object with a foreign key.
+CASE 8 PASS
+CASE 9: Check if the field with blank set to True is set properly.
+CASE 9 PASS
+CASE 10: Check if the field with default is set properly.
+CASE 10 PASS
+CASE 11: Set the field value to wrong type.
+CASE 11 PASS
+CASE 12: Set a float field with int.
+CASE 12 FAIL: the field is not set properly (maybe field is not a float anymore?)
+CASE 13: Set the field value whose blank is True to None.
+CASE 13 PASS
+CASE 14: Set the field value whose blank is False to None.
+CASE 14 FAIL: expected an error
+CASE 15: Export
+CASE 15 FAIL: the format is not correct
+Mark for orm basic test is 7 out of 15
+FAIL
+
+Running: /nfs/ug/cad/cad2/ece326f/tester/scripts/lab3-09-save.py
+orm save command test
+Mark for orm save command test is 0 out of 6
+FAIL
+
+Running: /nfs/ug/cad/cad2/ece326f/tester/scripts/lab3-12-filter.py
+orm filter command test
+CASE 1: Filter with no argument with no error.
+CASE 1 FAIL local variable 'value' referenced before assignment
+CASE 2: Filter with equal operator with no error.
+CASE 2 PASS
+CASE 3: Filter with not eqaul operator with no error.
+CASE 3 PASS
+CASE 4: Filter with greater than operator with no error.
+CASE 4 PASS
+CASE 5: Filter with less than operator with no error.
+CASE 5 PASS
+CASE 6: Filter with a foreign key object.
+CASE 6 PASS
+CASE 7: Filter with a foreign key pk value.
+CASE 7 PASS
+CASE 8: Filter with a foreign key object whose pk is None.
+CASE 8 PASS
+Mark for orm filter command test is 7 out of 8
+FAIL
+
+Running: /nfs/ug/cad/cad2/ece326f/tester/scripts/lab3-13-count.py
+orm count command test
+CASE 1: Count with no argument with no error.
+CASE 1 FAIL: local variable 'value' referenced before assignment
+CASE 2: Count with an argument with no error.
+CASE 2 FAIL: Operation `gt` not supported!
+CASE 3: Count with pk.
+CASE 3 FAIL: Column `pk` does not exist.
+CASE 4: Count with pk.
+CASE 4 FAIL: Column `pk` does not exist.
+Mark for orm count command test is 0 out of 4
+FAIL
+
+Running: /nfs/ug/cad/cad2/ece326f/tester/scripts/lab3-14-custom.py
+orm custom types (Datetime and Coordinate) test
+CASE 1: Create a row object with Coordinate field with no error.
+CASE 1 PASS
+CASE 2: Create a row object with Coordinate field whose blank is set to True.
+CASE 2 FAIL: `None` is not a valid coordinate.
+CASE 3: Assign the Coordinate field with wrong type.
+CASE 3 PASS
+CASE 4: Assign and save the row object with Coordinate field with invalid value.
+CASE 4 FAIL: `(200.2, 500.3)` does not contain valid coordinate values.
+CASE 5: Save and get the row object with Coordinate field with no error.
+CASE 5 PASS
+CASE 6: Filter the row object with Coordinate field.
+CASE 6 PASS
+CASE 7: Create a row object with Datetime field with no error.
+CASE 7 PASS
+CASE 8: Create a row object with DateTime field whose blank is set to True.
+CASE 8 FAIL: `None` is not a datetime.
+CASE 9: Create a row object with DateTime field whose default is set properly (calling a function).
+CASE 9 PASS
+CASE 10: Assign the Datetime field with wrong type.
+CASE 10 PASS
+CASE 11: Assign the Datetime field with correct type.
+CASE 11 PASS
+CASE 12: Save and get the row object with Datetime field with no error.
+CASE 12 PASS
+CASE 13: Filter the row object with Datetime field.
+CASE 13 PASS
+CASE 14: Count the row object with Datetime field.
+CASE 14 PASS
+Mark for orm custom types (Datetime and Coordinate) test is 11 out of 14
+FAIL
+
+You have received 73 marks out of a total of 100 marks.

@@ -1,0 +1,89 @@
+#!/bin/bash
+#
+# This file has variables that are sourced by other scripts in this directory
+# The first 3 sets of variables are most likely needed to be changed 
+# every semester.
+#
+# Kuei Sun <kuei.sun@mail.utoronto.ca>
+# Ashvin Goel <ashvin@eecg.toronto.edu>
+#
+# University of Toronto, 2019
+#
+
+# Lab TAs
+TA_1="Andrew Choi <aj.choi@mail.utoronto.ca>"
+TA_2="Wendy Qiu <wenjun.qiu@mail.utoronto.ca>"
+TA_3="Jeffrey Fang <szuchieh.fang@mail.utoronto.ca>"
+TA_4="Andrew Choi <aj.choi@mail.utoronto.ca>"
+
+# starting number of student groups
+START=0
+
+# ending number of student groups
+END=99
+
+DIR_1=asst1
+DIR_2=asst2
+DIR_3=asst3
+DIR_4=asst4
+
+# Files to restore from starter code
+FILES_1="main.cpp shoe.cpp shoe.h config.h player.h Makefile"
+FILES_2="main.py"
+FILES_3="main.py schema.py"
+FILES_4="main.rs schema.rs packet.rs"
+
+# Marks for each lab
+# Update these marks if the scripts are updated
+
+TOTAL_1=100
+TOTAL_2=100
+TOTAL_3=100
+TOTAL_4=100
+
+# which class are we using marker for
+CLASS=ece326
+
+# which class suffix is used
+SUFFIX=f
+
+# the prefix for group numbers (e.g. pl-101, os-106)
+PREFIX=pl
+
+# git repo path
+GIT_REP=ssh://ug250.eecg.utoronto.ca/srv/${CLASS}${SUFFIX}
+
+# where to find starter code
+SRC_PATH=/cad2/${CLASS}${SUFFIX}/src
+
+# Source path for each lab
+SRC_1=${SRC_PATH}/easybj.tar
+SRC_2=${SRC_PATH}/optimal.tar
+SRC_3=${SRC_PATH}/easyorm.tar
+SRC_4=${SRC_PATH}/easydb.tar
+
+# name of grades files
+GRADES_FILE=grades.csv
+
+# used by mark collection script
+# sets global variables MARKS and TOTAL
+function get_marks() {
+    NR=$1
+    MARKS_FILE=$2
+
+    # TOTAL from above
+    TOTAL=$(eval echo \$TOTAL_$NR)
+    if [ -f "$MARKS_FILE" ]; then
+        MARKS=$(awk -F "," 'BEGIN{mark=0}{mark+=$2}END{printf "%s", mark}' $MARKS_FILE)
+        SUM=$(awk -F "," 'BEGIN{sum=0}{sum+=$3}END{printf "%s", sum}' $MARKS_FILE)
+        if [ "$SUM" -ne "$TOTAL" ]; then
+            echo "Sum: $SUM != Total: $TOTAL" 1>&2;
+        fi
+    else
+        MARKS=""
+    fi
+    if [ -z "$MARKS" ]; then
+        MARKS=0
+    fi
+}
+
